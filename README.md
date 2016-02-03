@@ -4,9 +4,9 @@
 暂时支持jpg(jpeg),png,bmp格式图片
 ##演示图如下
 ###演示1
-![原图](http://u.candou.com/2014/0919/1411093303241.jpg)       ![效果图](http://u.candou.com/2014/0919/1411093303241.jpg)
+![原图](https://github.com/yuwenyishan/FastDraw9Patch/blob/master/screenshots/org_test.jpg?raw=true)       ![效果图](https://github.com/yuwenyishan/FastDraw9Patch/blob/master/screenshots/org_test.9.png?raw=true)
 ###演示2
-![原图](http://u.candou.com/2014/0919/1411093303241.jpg)       ![效果图](http://u.candou.com/2014/0919/1411093303241.jpg)
+![原图](https://raw.githubusercontent.com/yuwenyishan/FastDraw9Patch/master/screenshots/test2.bmp)       ![效果图](https://github.com/yuwenyishan/FastDraw9Patch/blob/master/screenshots/test2.9.png?raw=true)
 
 ##使用方法
 
@@ -15,6 +15,6 @@
 ####运行 main.py，选择文件或者文件夹，点击开始制作即可生成.9图
 
 ####截图1
+![1](https://github.com/yuwenyishan/FastDraw9Patch/blob/master/screenshots/%E6%88%AA%E5%9B%BE1.png?raw=true)
 ####截图2
-####截图3
-####截图4
+![2](https://github.com/yuwenyishan/FastDraw9Patch/blob/master/screenshots/%E6%88%AA%E5%9B%BE2.png?raw=true)
