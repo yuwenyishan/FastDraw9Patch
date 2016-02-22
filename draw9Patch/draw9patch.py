@@ -9,20 +9,23 @@ generate_type = ['png', 'jpg', 'jpeg', 'bmp']
 
 # 根据文件路径制作简易.9图
 def generation(image_path):
-    if not check_file_type(image_path):
-        LogUtil.log_e('file format error !')
-        return
-    last_path = get_last_file_name(image_path)
-    # print last_path
-    org_image = Image.open(image_path)  # 打开原图
-    # print org_image.size, org_image.format, org_image.info  # 基本信息输出
-    dst_size = map(add_2, org_image.size)  # 新的图尺寸，上下左右向外扩1个像素
-    dst_image = Image.new("RGBA", dst_size, (255, 255, 255, 0))  # 生成一张透明图
-    dst_image.paste(org_image, (1, 1, dst_size[0] - 1, dst_size[1] - 1))  # 将原图画在透明图上面（居中）
-    draw = ImageDraw.Draw(dst_image, "RGBA")  # 构建一张可以画的图
-    draw.point([0, 1, 0, dst_size[1] - 2, 1, 0, dst_size[0] - 2, 0], fill=(0, 0, 0, 255))  # 在上面画1像素点
-    dst_image.save(last_path)  # 保存.9图片
-    LogUtil.log_d(app, last_path + ' save success !')
+    try:
+        if not check_file_type(image_path):
+            LogUtil.log_e('file format error !')
+            return
+        last_path = get_last_file_name(image_path)
+        # print last_path
+        org_image = Image.open(image_path)  # 打开原图
+        # print org_image.size, org_image.format, org_image.info  # 基本信息输出
+        dst_size = map(add_2, org_image.size)  # 新的图尺寸，上下左右向外扩1个像素
+        dst_image = Image.new("RGBA", dst_size, (255, 255, 255, 0))  # 生成一张透明图
+        dst_image.paste(org_image, (1, 1, dst_size[0] - 1, dst_size[1] - 1))  # 将原图画在透明图上面（居中）
+        draw = ImageDraw.Draw(dst_image, "RGBA")  # 构建一张可以画的图
+        draw.point([0, 1, 0, dst_size[1] - 2, 1, 0, dst_size[0] - 2, 0], fill=(0, 0, 0, 255))  # 在上面画1像素点
+        dst_image.save(last_path)  # 保存.9图片
+        LogUtil.log_d(app, last_path + ' save success !')
+    except BaseException, e:
+        LogUtil.log_e(e.message)
 
 
 def add_2(x):
@@ -31,7 +34,7 @@ def add_2(x):
 
 # 检测文件类型是否是图片格式
 def check_file_type(image_path):
-    splits = str(image_path).split('.')
+    splits = image_path.split('.')
     if len(splits) < 2:
         return False
     temp_type = splits[len(splits) - 1]
@@ -40,7 +43,7 @@ def check_file_type(image_path):
 
 # 生成新的文件名
 def get_last_file_name(image_path):
-    splits = str(image_path).split('.')
+    splits = image_path.split('.')
     if len(splits) >= 2:
         splits[len(splits) - 1] = '9.png'
     last_path = ''

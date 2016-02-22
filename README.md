@@ -2,6 +2,8 @@
 ####1.快速制作android中的.9图（简单的边缘拉伸）
 ####2.在window下测试可以运行~未在其他平台上测试过
 ####3.暂时支持jpg(jpeg),png,bmp格式图片
+##下载地址
+[点我下载](https://github.com/yuwenyishan/FastDraw9Patch/blob/master/screenshots/FastDraw9Patch-1.0.0-win32.msi?raw=true)
 ##演示图如下
 ###演示1
 ![原图](https://github.com/yuwenyishan/FastDraw9Patch/blob/master/screenshots/org_test.jpg?raw=true)       ![效果图](https://github.com/yuwenyishan/FastDraw9Patch/blob/master/screenshots/org_test.9.png?raw=true)

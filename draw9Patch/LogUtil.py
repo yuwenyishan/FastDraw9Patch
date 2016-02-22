@@ -5,7 +5,7 @@ __author__ = 'Jack_long'
 
 
 def log_e(error):
-    print error
+    # print error
     main.show_error(error)
 
 

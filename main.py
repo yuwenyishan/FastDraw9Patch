@@ -40,8 +40,9 @@ class Application(Frame):
 
     def start_made(self):
         self.messageList.delete(0, END)
-        print self.Input_text.get(), self.CheckVar1.get()
+        # print self.Input_text.get(), self.CheckVar1.get()
         if self.Input_text.get():
+            # self.add_log(self.Input_text.get())
             draw9Patch.draw_patch(app, self.Input_text.get(), self.CheckVar1.get() == 1)
         else:
             MessageBox.showerror('error', '请选择文件夹')
@@ -69,11 +70,14 @@ def show_error(error):
 
 
 def show_log(x_app, log):
-    x_app.add_log(log)
+    x_app.add_log(log.encode('utf-8'))
 
 
 if __name__ == '__main__':
-    root = Tk(className='fast9Patch')  # 创建窗口对象的标题
-    root.geometry("400x400")  # 创建窗口对象大小
-    app = Application(master=root)
-    app.mainloop()
+    try:
+        root = Tk(className='fast9Patch')  # 创建窗口对象的标题
+        root.geometry("400x400")  # 创建窗口对象大小
+        app = Application(master=root)
+        app.mainloop()
+    except BaseException, e:
+        show_error(e.message)
